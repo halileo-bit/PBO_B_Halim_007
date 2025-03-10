@@ -1,4 +1,4 @@
-public class Alternatif_Codelab1 {
+public class Alternatif_Codelab1_Modul2 {
     public class Hewan {
         String nama, jenis, suara;
     
