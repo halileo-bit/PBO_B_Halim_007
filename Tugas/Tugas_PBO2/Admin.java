@@ -1,20 +1,20 @@
 package Tugas_PBO2;
 
-import java.util.Scanner;
-
 public class Admin {
-    String user, pwd;
-    Scanner masuk = new Scanner(System.in);
+    String user, pwd, nama;
+    
+    public Admin(String user, String pwd, String nama) {
+        this.user = user;
+        this.pwd = pwd;
+        this.nama = nama;
+    }
 
-    void masuk() {
-        do {
-            System.out.print("Username: "); user = masuk.nextLine();
-            System.out.print("Password: "); pwd = masuk.nextLine();
-            if (user.equals("admin") && pwd.equals("admin1092")) {
-                System.out.println("Login Berhasil.");
-            } else {
-                System.out.println("Login Gagal.");
-            }
-        } while (!user.equals("admin") && !pwd.equals("admin1092"));
+    public boolean login(String pengguna, String sandi) {
+        return this.user.equals(pengguna) && this.pwd.equals(sandi);
+    }
+
+    public String getName() {
+        return nama;
     }
 }
+
