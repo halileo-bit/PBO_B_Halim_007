@@ -64,6 +64,13 @@ public class manajemenStok {
                         } catch (InputMismatchException e) {
                             System.out.println("Stok harus berupa angka.");
                             scanner.nextLine(); // Clear the invalid input
+                        } try {
+                            if (stokBaru < 0) {
+                                barang b = listBarang.get(nomorUpdate - 1);
+                                throw new stokTidakCukup("Stok untuk " + b.getNama() + " hanya tersisa " + b.getStok());
+                            }
+                        } catch (stokTidakCukup e) {
+                            System.out.println(e.getMessage());
                         }
                         listBarang.get(nomorUpdate - 1).setStok(stokBaru);
                         System.out.println("Stok barang berhasil diupdate.");
