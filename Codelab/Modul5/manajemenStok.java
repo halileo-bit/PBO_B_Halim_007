@@ -5,10 +5,10 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class manajemenStok {
+    public static ArrayList<barang> listBarang = new ArrayList<>(); // wrapper class
+    public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        ArrayList<barang> listBarang = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        int pilihan;
+        int pilihan, stok = 0, stokBaru = 0;
 
         do {
             System.out.println("Menu:");
@@ -31,21 +31,40 @@ public class manajemenStok {
                 case 1:
                     System.out.print("Masukkan nama barang: "); String nama = scanner.nextLine();
                     // System.out.print("Masukkan harga barang: "); double harga = scanner.nextDouble();
-                    System.out.print("Masukkan stok barang: "); int stok = scanner.nextInt();
-                    listBarang.add(new barang(nama, stok));
+                    System.out.print("Masukkan stok barang: ");
+                    try {
+                        stok = scanner.nextInt();
+                        scanner.nextLine(); // Clear the newline character
+                    } catch (InputMismatchException e) {
+                        System.out.println("Stok harus berupa angka.");
+                        scanner.nextLine(); // Clear the invalid input
+                    }
+                    listBarang.add(new barang(nama, stok)); // autoboxing
                     System.out.println("Barang berhasil ditambahkan.");
                     break;
                 case 2:
                     System.out.println("Daftar Barang:");
                     for (int i = 0; i < listBarang.size(); i++) {
-                        barang b = listBarang.get(i);
-                        System.out.println((i + 1) + ". " + b.getNama() + "Stok: " + b.getStok());
+                        barang b = listBarang.get(i); // unboxing
+                        System.out.println((i + 1) + ". " + b.getNama() + " Stok: " + b.getStok());
+                    }
+                    if (listBarang.isEmpty()) {
+                        System.out.println("Tidak ada barang dalam daftar.");
+                    } else {
+                        System.out.println("Total barang: " + listBarang.size());
                     }
                     break;
                 case 3:
                     System.out.print("Masukkan nomor barang yang ingin diupdate: "); int nomorUpdate = scanner.nextInt();
                     if (nomorUpdate > 0 && nomorUpdate <= listBarang.size()) {
-                        System.out.print("Masukkan stok baru: "); int stokBaru = scanner.nextInt();
+                        System.out.print("Masukkan stok baru: ");
+                        try {
+                            stokBaru = scanner.nextInt();
+                            scanner.nextLine(); // Clear the newline character
+                        } catch (InputMismatchException e) {
+                            System.out.println("Stok harus berupa angka.");
+                            scanner.nextLine(); // Clear the invalid input
+                        }
                         listBarang.get(nomorUpdate - 1).setStok(stokBaru);
                         System.out.println("Stok barang berhasil diupdate.");
                     } else {
