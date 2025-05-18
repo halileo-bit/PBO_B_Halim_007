@@ -1,6 +1,6 @@
-package Tugas.Tugas_PBO4.users;
+package Tugas_PBO4.users;
 
-import Tugas.Tugas_PBO4.actions.AdminActions;
+import Tugas_PBO4.actions.AdminActions;
 import java.util.Scanner;
 
 public class Admin extends Pengguna implements AdminActions {

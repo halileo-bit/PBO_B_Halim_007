@@ -1,8 +1,8 @@
-package Tugas.Tugas_PBO4.app;
+package Tugas_PBO4.app;
 
-import Tugas.Tugas_PBO4.users.Admin;
-import Tugas.Tugas_PBO4.users.Mahasiswa;
-import Tugas.Tugas_PBO4.users.Pengguna;
+import Tugas_PBO4.users.Admin;
+import Tugas_PBO4.users.Mahasiswa;
+import Tugas_PBO4.users.Pengguna;
 import java.util.Scanner;
 
 public class Main {

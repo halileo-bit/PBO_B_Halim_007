@@ -1,6 +1,6 @@
-package Tugas.Tugas_PBO4.users;
+package Tugas_PBO4.users;
 
-import Tugas.Tugas_PBO4.actions.MahasiswaActions;
+import Tugas_PBO4.actions.MahasiswaActions;
 import java.util.Scanner;
 
 public class Mahasiswa extends Pengguna implements MahasiswaActions {
