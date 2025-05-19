@@ -29,4 +29,14 @@ public class item {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "nama='" + nama + '\'' +
+                ", deskripsi='" + deskripsi + '\'' +
+                ", lokasi='" + lokasi + '\'' +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }
